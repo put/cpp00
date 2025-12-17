@@ -6,11 +6,13 @@
 /*   By: mika <mika@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 17:44:21 by mika              #+#    #+#             */
-/*   Updated: 2025/08/26 19:06:51 by mika             ###   ########.fr       */
+/*   Updated: 2025/12/17 19:54:32 by mika             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./phonebook.hpp"
+#include "./Contact.hpp"
+#include "./Phonebook.hpp"
+#include <cstdlib>
 
 string GetContactDetail(string type)
 {
@@ -19,7 +21,8 @@ string GetContactDetail(string type)
 	while (result.length() == 0)
 	{
 		std::cout << "Enter " << type << " -> ";
-		getline(std::cin, result);
+		if (!std::getline(std::cin, result) || std::cin.eof())
+			exit(0);
 	}
 	return result;
 }
@@ -53,7 +56,8 @@ void SearchContact(PhoneBook& pb)
 	while (result.length() != 1 || !(result[0] >= '0' && result[0] <= '8'))
 	{
 		std::cout << "Enter index -> ";
-		getline(std::cin, result);
+		if (!std::getline(std::cin, result) || std::cin.eof())
+			exit(0);
 	}
 	pb.Contacts[result[0] - 48].PrintFull();
 }
@@ -67,7 +71,8 @@ int main()
 	while (true)
 	{
 		std::cout << "Enter command -> ";
-		getline(std::cin, result);
+		if (!getline(std::cin, result) || std::cin.eof())
+			return (0);
 		if (result == "EXIT")
 			return (0);
 		if (result == "ADD")

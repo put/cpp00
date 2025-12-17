@@ -6,7 +6,7 @@
 #    By: mika <mika@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/08/26 18:20:00 by mika              #+#    #+#              #
-#    Updated: 2025/08/26 19:20:54 by mika             ###   ########.fr        #
+#    Updated: 2025/12/17 19:39:53 by mika             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ CXXFLAGS = -Wall -Wextra -Werror -std=c++23
 SRCDIR = .
 OBJDIR = .
 
-SOURCES = main.cpp phonebook.cpp
-HEADERS = phonebook.hpp
+SOURCES = main.cpp Phonebook.cpp Contact.cpp
+HEADERS = Phonebook.hpp Contact.hpp
 OBJECTS = $(SOURCES:.cpp=.o)
 
 all: $(NAME)
